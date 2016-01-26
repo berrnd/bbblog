@@ -2997,3 +2997,8 @@ table th {
   text-decoration: none;
   background-color: #333332;
 }
+
+#smart-archives-block {
+	margin-left: 0;
+	list-style-type: none;
+}
