@@ -16,7 +16,7 @@
 		<?php wp_nav_menu(array('theme_location' => 'footer')); ?>
     </nav>
 	<div class="site-info">
-		<?php echo independent_publisher_footer_credits(); ?>
+		<?php dynamic_sidebar('footer'); ?>
 	</div>
 	<!-- .site-info -->
 </footer><!-- #colophon .site-footer -->
