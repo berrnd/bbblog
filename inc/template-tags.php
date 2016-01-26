@@ -160,12 +160,14 @@ if ( ! function_exists( 'independent_publisher_posted_author' ) ) :
 		$post_author_id        = $wp_query->post->post_author;
 		$post_author_nice_name = get_the_author_meta( 'display_name', $post_author_id );
 
-		printf(
+		/*printf(
 			'<span class="byline"><span class="author vcard"><a class="url fn n" href="%1$s" title="%2$s" rel="author">%3$s</a></span></span>',
 			esc_url( get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ) ),
 			esc_attr( sprintf( __( 'View all posts by %s', 'independent-publisher' ), $post_author_nice_name ) ),
 			esc_html( $post_author_nice_name )
-		);
+		);*/
+    
+    independent_publisher_site_info(true);
 	}
 endif;
 
@@ -392,9 +394,9 @@ if ( ! function_exists( 'independent_publisher_site_info' ) ) :
 	 *
 	 * @since Independent Publisher 1.0
 	 */
-	function independent_publisher_site_info() {
+	function independent_publisher_site_info($no_logo = false) {
 		?>
-		<?php if ( get_header_image() ) : ?>
+		<?php if ( get_header_image() && !$no_logo ) : ?>
 			<a class="site-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 				<img class="no-grav" src="<?php echo esc_url( get_header_image() ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 			</a>
