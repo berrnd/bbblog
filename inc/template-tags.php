@@ -442,7 +442,7 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 			</a>
 		<?php else: ?>
 			<a class="site-logo" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ); ?>">
-				<?php echo get_avatar( get_the_author_meta( 'ID', $post_author_id ), 100 ); ?>
+				<img class="no-grav" src="<?php echo esc_url( get_header_image() ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 			</a>
 		<?php endif; ?>
 
