@@ -49,7 +49,7 @@
 			<?php endif; ?>
 		</div>
 		
-		<?php if (is_home()) : ?>
+		<?php if (is_home() || is_page()) : ?>
 			<div class="site-published-separator"></div>
 		<?php endif; ?>
 
