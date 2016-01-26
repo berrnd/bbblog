@@ -1625,7 +1625,7 @@ body {
 
 .site-navigation,
 .post-navigation {
-	margin-top: 20px;
+	margin-top: 0px;
 }
 
 .infinite-scroll .paging-navigation,
