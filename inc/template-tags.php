@@ -15,6 +15,16 @@ if ( ! function_exists( 'independent_publisher_content_nav' ) ) :
 	 * @since Independent Publisher 1.0
 	 */
 	function independent_publisher_content_nav( $nav_id ) {
+    $nav_class = 'site-navigation paging-navigation';
+    if ( is_single() )
+      $nav_class = 'site-navigation post-navigation';
+      if(function_exists('wp_pagenavi')) {
+        echo('<nav role="navigation" id="'.$nav_id.'" class="'.$nav_class.'">');
+        wp_pagenavi();
+        echo('</nav>');
+      return;
+    }
+  
 		global $wp_query, $post;
 
 		// Don't print empty markup on single pages if there's nowhere to navigate.
