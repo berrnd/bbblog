@@ -2686,6 +2686,10 @@ table th {
 		margin-bottom: 20px;
 		margin-top: 20px;
 	}
+	
+	.site-published-separator {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 500px) {
