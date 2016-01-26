@@ -540,6 +540,10 @@ img.aligncenter {
 	display: inline;
 }
 
+.footer-navigation li:not(:first-child):before {
+	content: " | ";
+}
+
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/

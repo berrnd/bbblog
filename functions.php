@@ -103,7 +103,8 @@ if ( ! function_exists( 'independent_publisher_setup' ) ):
 			array(
 				'primary' => __( 'Primary Menu', 'independent-publisher' ),
 				'single' => __( 'Single Posts Menu', 'independent-publisher' ),
-				'social'  => __( 'Social', 'independent-publisher' )
+				'social'  => __( 'Social', 'independent-publisher' ),
+				'footer'  => __( 'Footer', 'independent-publisher' )
 			)
 		);
 

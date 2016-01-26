@@ -12,6 +12,9 @@
 </div><!-- #main .site-main -->
 
 <footer id="colophon" class="site-footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter" role="contentinfo">
+	<nav role="navigation" class="footer-navigation">
+		<?php wp_nav_menu(array('theme_location' => 'footer')); ?>
+    </nav>
 	<div class="site-info">
 		<?php echo independent_publisher_footer_credits(); ?>
 	</div>
