@@ -36,9 +36,7 @@
 				}
 				independent_publisher_posted_author() ?>
 			</span>
-			<?php if ( independent_publisher_categorized_blog() ) {
-				echo independent_publisher_entry_meta_category_prefix() . ' ' . independent_publisher_post_categories( '', true );
-			} ?>
+			<?php echo /*independent_publisher_entry_meta_category_prefix() . ' ' . */independent_publisher_post_categories( '', true ); ?>
 			<span class="entry-title-meta-post-date">
 				<span class="sep"> <?php echo apply_filters( 'independent_publisher_entry_meta_separator', '|' ); ?> </span>
 				<?php independent_publisher_posted_on_date() ?>
