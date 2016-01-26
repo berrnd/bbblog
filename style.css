@@ -1528,7 +1528,7 @@ body {
 
 .site-title {
 	margin: 0;
-	font-size: 16px;
+	font-size: 26px;
 	line-height: 1.2;
 	letter-spacing: inherit;
 }
@@ -1911,7 +1911,7 @@ article.first-post {
 
 .site-footer {
 	clear: both;
-	margin-top: 100px;
+	margin-top: 10px;
 	margin-bottom: 20px;
 	color: #b3b3b1;
 }
