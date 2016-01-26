@@ -86,7 +86,7 @@
 		 */ 
 		?>
 		<?php if ( 'post' == get_post_type() && independent_publisher_is_not_first_post_full_content() ) : // post type == post conditional hides category text for Pages on Search ?>
-			<?php independent_publisher_posted_author_cats() ?>
+			<?php echo independent_publisher_post_categories( '', true ) . ' |'; ?>
 		<?php endif; ?>
 
 		<?php /* Show post date when show post date option enabled */
