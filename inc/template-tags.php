@@ -386,11 +386,49 @@ if ( ! function_exists( 'independent_publisher_post_categories' ) ) :
 	function independent_publisher_post_categories( $separator = ',', $single = false ) {
 		$categories = get_the_category();
 		$output     = '';
+		$i = 1;
+		$last = count($categories);
 		if ( $categories ) {
 			foreach ( $categories as $category ) {
-				$output .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . esc_attr( sprintf( __( "View all posts in %s", 'independent-publisher' ), $category->name ) ) . '">' . $category->cat_name . '</a>' . $separator;
+				$output .= '<a href="' . get_category_link( $category->term_id ) . '" title="' . esc_attr( sprintf( __( "Alle Beiträge zum Hashtag %s", 'independent-publisher' ), $category->name ) ) . '">' . $category->cat_name . '</a>';
+				
+				if ($i < $last)
+					$output .= $separator;
+				
 				if ( $single )
 					break;
+				
+				$i++;
+			}
+		}
+
+		return $output;
+	}
+endif;
+
+if ( ! function_exists( 'independent_publisher_post_tags' ) ) :
+	/**
+	 * Returns tags for current post with separator.
+	 * Optionally returns only a single tag.
+	 *
+	 * @since Independent Publisher 1.0
+	 */
+	function independent_publisher_post_tags( $separator = ',', $single = false ) {
+		$tags = get_the_tags();
+		$output     = '';
+		$i = 1;
+		$last = count($tags);
+		if ( $tags ) {
+			foreach ( $tags as $tag ) {
+				$output .= '<a href="' . get_tag_link( $tag->term_id ) . '" title="' . esc_attr( sprintf( __( 'Alle Beiträge der Story "%s"', 'independent-publisher' ), $tag->name ) ) . '">' . $tag->name . '</a>';
+				
+				if ($i < $last)
+					$output .= $separator;
+				
+				if ( $single )
+					break;
+				
+				$i++;
 			}
 		}
 
@@ -442,7 +480,7 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 			</a>
 		<?php else: ?>
 			<a class="site-logo" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID', $post_author_id ) ); ?>">
-				<?php echo get_avatar( get_the_author_meta( 'ID', $post_author_id ), 100 ); ?>
+				<img class="no-grav" src="<?php echo esc_url( get_header_image() ); ?>" height="<?php echo absint( get_custom_header()->height ); ?>" width="<?php echo absint( get_custom_header()->width ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" />
 			</a>
 		<?php endif; ?>
 
@@ -463,6 +501,10 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 			<h2 class="site-published"><?php _e('Updated', 'independent-publisher'); ?></h2>
 			<h2 class="site-published-date"><?php independent_publisher_post_updated_date(); ?></h2>
 		<?php endif; ?>
+    
+    <div class="sidebar-separator"></div>
+    <h2 class="site-published">Tags</h2>
+    <h2 class="site-published-date"><?php echo independent_publisher_post_categories( '<br>', false ); ?></h2>
 
 		<?php do_action( 'independent_publisher_after_post_published_date' ); ?>
 	<?php
@@ -659,9 +701,9 @@ if ( ! function_exists( 'independent_publisher_taxonomy_archive_stats' ) ):
 		}
 
 		if ( $taxonomy === 'category' ) {
-			$stats_text = sprintf( _n( 'There is one post filed in <strong>%2$s</strong>.', 'There are %1$s posts filed in <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), single_term_title( '', false ) );
+			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zum Hashtag <strong>%2$s</strong>.', 'Es gibt %1$s Beiträge zum Hashtag <strong>%2$s</strong>' . $pagination_info, $total, 'independent-publisher' ) . '.', number_format_i18n( $total ), single_term_title( '', false ) );
 		} elseif ( $taxonomy === 'post_tag' ) {
-			$stats_text = sprintf( _n( 'There is one post tagged <strong>%2$s</strong>.', 'There are %1$s posts tagged <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), single_term_title( '', false ) );
+			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zur Story <strong>%2$s</strong>.', 'Es gibt %1$s Beiträge zur Story <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), single_term_title( '', false ) );
 		}
 
 		return wpautop( $stats_text );

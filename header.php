@@ -48,6 +48,10 @@
 				<?php independent_publisher_site_info(); ?>
 			<?php endif; ?>
 		</div>
+		
+		<?php if (is_home() || is_page() || is_category()) : ?>
+			<div class="site-published-separator"></div>
+		<?php endif; ?>
 
 		<?php // Show navigation menu on everything except Single pages, unless Show Primary Nav Menu on Single Pages is enabled ?>
 		<?php if ( ! is_single() || independent_publisher_show_nav_on_single() ) : ?>

@@ -48,22 +48,6 @@ add_action( 'after_setup_theme', 'independent_publisher_custom_header_setup' );
  */
 function independent_publisher_get_default_header_image() {
 
-	// Get default from Discussion Settings.
-	$default = get_option( 'avatar_default', 'mystery' ); // Mystery man default
-	if ( 'mystery' == $default ) {
-		$default = 'mm';
-	} elseif ( 'gravatar_default' == $default ) {
-		$default = '';
-	}
-
-	$url = ( is_ssl() ) ? 'https://secure.gravatar.com' : 'http://gravatar.com';
-	$url .= sprintf( '/avatar/%s/', md5( get_option( 'admin_email' ) ) );
-	$url = add_query_arg(
-		array(
-			's' => 100,
-			'd' => urlencode( $default ),
-		), $url
-	);
-
+	$url = 'https://berrnd.de/img/Bernd_Bestel_100px.jpg';
 	return esc_url_raw( $url );
 } // independent_publisher_get_default_header_image

@@ -86,7 +86,7 @@
 		 */ 
 		?>
 		<?php if ( 'post' == get_post_type() && independent_publisher_is_not_first_post_full_content() ) : // post type == post conditional hides category text for Pages on Search ?>
-			<?php echo independent_publisher_post_categories( '', true ) . ' |'; ?>
+			<?php echo independent_publisher_post_categories( ', ', false ) . ' |'; ?>
 		<?php endif; ?>
 
 		<?php /* Show post date when show post date option enabled */
@@ -113,6 +113,11 @@
 
 		<?php $separator = apply_filters( 'independent_publisher_entry_meta_separator', '|' ); ?>
 		<?php edit_post_link( __( 'Edit', 'independent-publisher' ), '<span class="sep"> ' . $separator . ' </span> <span class="edit-link">', '</span>' ); ?>
+    
+    <?php if ( 'post' == get_post_type() && independent_publisher_is_not_first_post_full_content() && has_tag() ) : // post type == post conditional hides category text for Pages on Search ?>
+      <br>
+			Teil der Story <em><?php echo independent_publisher_post_tags( '', true ); ?></em>
+		<?php endif; ?>
 
 	</footer>
 	<!-- .entry-meta -->
