@@ -43,6 +43,22 @@
 			</span>
 			<?php do_action( 'independent_publisher_entry_title_meta', $separator = ' | ' ); ?>
 		</h2>-->
+		
+		<div class="entry-meta-container-small-screens">
+		<h3 class="entry-title-meta"><?php _e('Veröffentlicht am', 'independent-publisher'); ?> <em><?php independent_publisher_posted_on_date(); ?></em></h3>
+		<?php /* Show last updated date if the post was modified AND
+					Show Updated Date on Single Posts option is enabled AND
+						'independent_publisher_hide_updated_date' Custom Field is not present on this post */ ?>
+		<?php if ( get_the_modified_date() !== get_the_date() &&
+					independent_publisher_show_updated_date_on_single() &&
+						! get_post_meta( get_the_ID(), 'independent_publisher_hide_updated_date', TRUE ) ) : ?>
+			<h3 class="entry-title-meta"><?php _e('Updated', 'independent-publisher'); ?></h3>
+			<h3 class="entry-title-meta"><?php independent_publisher_post_updated_date(); ?></h3>
+		<?php endif; ?>
+    
+    <h3 class="entry-title-meta" style="padding-bottom: 10px;">Tags <em><?php echo independent_publisher_post_categories( ', ', false ); ?></em></h3>
+		</div>
+		
 		<?php if(has_tag())
 			echo '<h3 style="padding-top: 5px;" class="entry-title-meta">Teil der Story <em>' . independent_publisher_post_tags( '', true ) . '</em></h3>';
 		?>

@@ -485,11 +485,12 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 		<?php endif; ?>
 
 		<h1 class="site-title"><?php independent_publisher_posted_author(); ?></h1>
-		<h2 class="site-description"><?php the_author_meta( 'description', $post_author_id ) ?></h2>
+		<!--<h2 class="site-description"><?php the_author_meta( 'description', $post_author_id ) ?></h2>-->
 
 		<?php get_template_part( 'menu', 'social' ); ?>
 
 		<div class="site-published-separator"></div>
+		<div class="entry-meta-container">
 		<h2 class="site-published"><?php _e('Published', 'independent-publisher'); ?></h2>
 		<h2 class="site-published-date"><?php independent_publisher_posted_on_date(); ?></h2>
 		<?php /* Show last updated date if the post was modified AND
@@ -505,7 +506,7 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
     <div class="sidebar-separator"></div>
     <h2 class="site-published">Tags</h2>
     <h2 class="site-published-date"><?php echo independent_publisher_post_categories( '<br>', false ); ?></h2>
-
+</div>
 		<?php do_action( 'independent_publisher_after_post_published_date' ); ?>
 	<?php
 	}

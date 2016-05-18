@@ -2532,6 +2532,14 @@ table th {
 	color: #4A4A4E;
 }
 
+.single .menu-topnav-container {
+	display: none;
+}
+
+.single .entry-meta-container-small-screens {
+	display: none;
+}
+
 /* Hide left-side author card under 1200px */
 @media only screen and (max-width: 1200px) {
 	.site,
@@ -2568,7 +2576,7 @@ table th {
 		line-height: 1;
 	}
 
-	.single .site-header-info {
+	.single .entry-meta-container {
 		display: none;
 	}
 
@@ -2694,6 +2702,15 @@ table th {
 	}
 	
 	.site-published-separator {
+		display: none;
+	}
+	
+	.single .entry-meta-container-small-screens {
+		display: inline;
+	}
+	
+	.page .menu-topnav-container,
+	.archive .menu-topnav-container {
 		display: none;
 	}
 }
