@@ -1212,3 +1212,19 @@ if ( ! function_exists( 'independent_publisher_show_page_load_progress_bar' ) ) 
 		<?php
 	}
 endif;
+
+function change_menu_labels() {
+	global $menu;
+	global $submenu;
+	$submenu['edit.php'][15][0] = 'Hashtags'; //Categories
+	$submenu['edit.php'][16][0] = 'Stories'; //Tags
+	echo '';
+}
+add_action('admin_menu', 'change_menu_labels');
+
+function change_posts_table_column_titles($posts_columns) {
+	$posts_columns['categories'] = 'Hashtags';
+	$posts_columns['tags'] = 'Story';
+    return $posts_columns;
+}
+add_filter('manage_post_posts_columns', 'change_posts_table_column_titles');
