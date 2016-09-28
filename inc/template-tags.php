@@ -145,10 +145,10 @@ if ( ! function_exists( 'independent_publisher_pings' ) ) :
 		if ( $pings ) {
 			foreach ( $pings as $ping ) {
 				?>
-				<li <?php comment_class( '', $ping->comment_ID ); ?> id="li-comment-<?php echo $ping->comment_ID ?>">
+				<p <?php comment_class( '', $ping->comment_ID ); ?> id="li-comment-<?php echo $ping->comment_ID ?>">
 				<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link( $ping->comment_ID ) ) ?>
 				<span> <?php edit_comment_link( __( '(Edit)', 'independent-publisher' ), '  ', '' ) ?></span>
-				</li>
+				</p>
 			<?php
 			}
 		}
@@ -504,7 +504,7 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 		<?php endif; ?>
     
     <div class="sidebar-separator"></div>
-    <h2 class="site-published">Tags</h2>
+    <h2 class="site-published">Hashtags</h2>
     <h2 class="site-published-date"><?php echo independent_publisher_post_categories( '<br>', false ); ?></h2>
 </div>
 		<?php do_action( 'independent_publisher_after_post_published_date' ); ?>
@@ -702,9 +702,9 @@ if ( ! function_exists( 'independent_publisher_taxonomy_archive_stats' ) ):
 		}
 
 		if ( $taxonomy === 'category' ) {
-			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zum Hashtag <strong>%2$s</strong>.', 'Es gibt %1$s Beiträge zum Hashtag <strong>%2$s</strong>' . $pagination_info, $total, 'independent-publisher' ) . '.', number_format_i18n( $total ), single_term_title( '', false ) );
+			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zum Hashtag <strong>%2$s</strong>', 'Es gibt %1$s Beiträge zum Hashtag <strong>%2$s</strong>' . $pagination_info, $total, 'independent-publisher' ) . '.', number_format_i18n( $total ), single_term_title( '', false ) );
 		} elseif ( $taxonomy === 'post_tag' ) {
-			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zur Story <strong>%2$s</strong>.', 'Es gibt %1$s Beiträge zur Story <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), single_term_title( '', false ) );
+			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zur Story <strong>%2$s</strong>', 'Es gibt %1$s Beiträge zur Story <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), single_term_title( '', false ) );
 		}
 
 		return wpautop( $stats_text );
