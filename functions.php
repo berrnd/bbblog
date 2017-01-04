@@ -1228,3 +1228,10 @@ function change_posts_table_column_titles($posts_columns) {
     return $posts_columns;
 }
 add_filter('manage_post_posts_columns', 'change_posts_table_column_titles');
+
+add_filter('upload_mimes', 'add_allowed_upload_filetypes');
+
+function add_allowed_upload_filetypes($mimes) {
+	$mimes = array_merge($mimes, array('xml' => 'application/xml'));
+	return $mimes;
+}
