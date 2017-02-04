@@ -56,11 +56,12 @@
 			<h3 class="entry-title-meta"><?php independent_publisher_post_updated_date(); ?></h3>
 		<?php endif; ?>
     
-    <h3 class="entry-title-meta" style="padding-bottom: 10px;">Tags <em><?php echo independent_publisher_post_categories( ', ', false ); ?></em></h3>
+			<h3 class="entry-title-meta">Hashtags <em><?php echo independent_publisher_post_categories( ', ', false ); ?></em></h3>
+			<h3 class="entry-title-meta">Geschätzte Lesedauer <em><?php echo estimated_reading_time(get_the_content()); ?></em></h3>
 		</div>
 		
 		<?php if(has_tag())
-			echo '<h3 style="padding-top: 5px;" class="entry-title-meta">Teil der Story <em>' . independent_publisher_post_tags( '', true ) . '</em></h3>';
+			echo '<h3 class="entry-title-meta">Teil der Story <em>' . independent_publisher_post_tags( '', true ) . '</em></h3>';
 		?>
 		<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1>
 	<?php endif; ?>

@@ -187,6 +187,10 @@ function independent_publisher_scripts() {
 	global $post;
 
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons/genericons.css', array(), '3.1' );
+	
+	wp_enqueue_style( 'fira-mono-v5-latin', get_template_directory_uri() . '/fonts/fira-mono-v5-latin/fira-mono-v5-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'news-cycle-v13-latin', get_template_directory_uri() . '/fonts/news-cycle-v13-latin/news-cycle-v13-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'merriweather-v14-latin', get_template_directory_uri() . '/fonts/merriweather-v14-latin/merriweather-v14-latin.min.css', array(), '3.1' );
 
 	wp_enqueue_script( 'independent-publisher-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -1234,4 +1238,21 @@ add_filter('upload_mimes', 'add_allowed_upload_filetypes');
 function add_allowed_upload_filetypes($mimes) {
 	$mimes = array_merge($mimes, array('xml' => 'application/xml'));
 	return $mimes;
+}
+
+function estimated_reading_time($content) {
+	$wordCount = str_word_count(strip_tags($content));
+
+	$minutes = floor($wordCount / 200);
+	$seconds = floor($wordCount % 200 / (200 / 60));
+
+	if ($minutes == 0) {
+		return "weniger als eine Minute";
+	}
+	elseif ($minutes == 1) {
+		return "eine Minute";
+	}
+	else {
+		return "{$minutes} Minuten";
+	}
 }

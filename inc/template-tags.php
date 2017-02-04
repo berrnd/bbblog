@@ -506,6 +506,9 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
     <div class="sidebar-separator"></div>
     <h2 class="site-published">Hashtags</h2>
     <h2 class="site-published-date"><?php echo independent_publisher_post_categories( '<br>', false ); ?></h2>
+	<div class="sidebar-separator"></div>
+    <h2 class="site-published">Geschätzte Lesedauer</h2>
+	<h2 class="site-published-date"><?php echo estimated_reading_time(get_the_content()); ?></h2>
 </div>
 		<?php do_action( 'independent_publisher_after_post_published_date' ); ?>
 	<?php
@@ -667,9 +670,10 @@ if ( ! function_exists( 'independent_publisher_search_stats' ) ):
 		/**
 		 * Only show pagination info when there is more than 1 page
 		 */
-		if ( $total_pages > 1 ) {
-			$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
-		}
+		//if ( $total_pages > 1 ) {
+			//$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
+		//}
+		$pagination_info = '';
 
 		$stats_text = sprintf( _n( 'Found one search result for <strong>%2$s</strong>.', 'Found %1$s search results for <strong>%2$s</strong>' . $pagination_info . '.', $total, 'independent-publisher' ), number_format_i18n( $total ), get_search_query() );
 
@@ -697,9 +701,10 @@ if ( ! function_exists( 'independent_publisher_taxonomy_archive_stats' ) ):
 		/**
 		 * Only show pagination info when there is more than 1 page
 		 */
-		if ( $total_pages > 1 ) {
-			$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
-		}
+		//if ( $total_pages > 1 ) {
+			//$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
+		//}
+		$pagination_info = '';
 
 		if ( $taxonomy === 'category' ) {
 			$stats_text = sprintf( _n( 'Es gibt einen Beitrag zum Hashtag <strong>%2$s</strong>', 'Es gibt %1$s Beiträge zum Hashtag <strong>%2$s</strong>' . $pagination_info, $total, 'independent-publisher' ) . '.', number_format_i18n( $total ), single_term_title( '', false ) );
@@ -726,9 +731,10 @@ if ( ! function_exists( 'independent_publisher_date_archive_description' ) ):
 		/**
 		 * Only show pagination info when there is more than 1 page
 		 */
-		if ( $total_pages > 1 ) {
-			$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
-		}
+		//if ( $total_pages > 1 ) {
+			//$pagination_info = sprintf( __( ' (this is page <strong>%1$s</strong> of <strong>%2$s</strong>)', 'independent-publisher' ), number_format_i18n( $current_page_num ), number_format_i18n( $total_pages ) );
+		//}
+		$pagination_info = '';
 
 		/**
 		 * Only proceed if we're on the first page and the description has not been overridden via independent_publisher_custom_date_archive_meta
