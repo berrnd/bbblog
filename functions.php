@@ -1256,3 +1256,9 @@ function estimated_reading_time($content) {
 		return "{$minutes} Minuten";
 	}
 }
+
+//Remove not needed standard Wordpress things
+remove_action( 'wp_head', 'wp_resource_hints', 2 );
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+add_filter( 'emoji_svg_url', '__return_false' );
