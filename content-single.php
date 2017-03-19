@@ -64,6 +64,7 @@
 			echo '<h3 class="entry-title-meta">Teil der Story <em>' . independent_publisher_post_tags( '', true ) . '</em></h3>';
 		?>
 		<h1 class="entry-title" itemprop="name"><?php the_title(); ?></h1>
+		<?php if(get_the_subtitle(get_the_ID(), '', '', FALSE) !== '') { the_subtitle('<h2 class="entry-title entry-subtitle">', '</h2>'); } ?>
 	<?php endif; ?>
 	</header>
 	<!-- .entry-header -->

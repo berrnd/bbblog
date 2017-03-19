@@ -1915,6 +1915,12 @@ article.first-post {
 	word-wrap: break-word;
 }
 
+.entry-subtitle {
+	font-size: 1.3em;
+	margin-top: -10px;
+	color: #929292;
+}
+
 .widget_search input[type="text"] {
 	/* fixes overflow issue */
 	width: 90%;
