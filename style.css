@@ -1917,7 +1917,7 @@ article.first-post {
 
 .entry-subtitle {
 	font-size: 1.3em;
-	margin-top: -10px;
+	margin-top: 0;
 	color: #929292;
 }
 
