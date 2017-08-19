@@ -1922,6 +1922,10 @@ article.first-post {
 	color: #929292;
 }
 
+.entry-title.hasno-subtitle {
+	margin-bottom: 20px !important;
+}
+
 .widget_search input[type="text"] {
 	/* fixes overflow issue */
 	width: 90%;
