@@ -1940,7 +1940,6 @@ article.first-post {
 
 .site-footer,
 .site-footer a {
-	font-size: 12px;
 	text-align: center;
 }
 
@@ -1958,11 +1957,6 @@ article.first-post {
 	padding-top: 10px;
 	line-height: 1.42857143;
 	font-size: 0.95em;
-}
-
-.menu-footernav-container .menu-item a,
-.menu-footernav-container .menu-item {
-	font-size: 0.9em !important;
 }
 
 .site-footer a,
@@ -3054,4 +3048,12 @@ table th {
 #smart-archives-block {
 	margin-left: 0;
 	list-style-type: none;
+}
+
+.legal-navigation {
+	font-size: 10px !important;
+}
+
+.site-info {
+	font-size: 11px !important;
 }
