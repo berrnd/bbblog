@@ -198,7 +198,7 @@ blockquote {
 	font-style: italic;
 	font-family: 'Merriweather', serif;
 	border-left: 3px solid;
-	border-color: #57ad68;
+	border-color: #5cb85c;
 	padding-left: 10px;
 }
 
@@ -317,17 +317,17 @@ input[type="submit"] {
 	border: 0;
 	border-color: #ccc #ccc #bbb #ccc;
 	border-radius: 3px;
-	background: #57ad68; /* Old browsers */
-	background: -moz-linear-gradient(top, #57ad68 60%, #57ad68 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #57ad68), color-stop(100%, #57ad68)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #57ad68 60%, #57ad68 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #57ad68 60%, #57ad68 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #57ad68 60%, #57ad68 100%); /* IE10+ */
-	background: linear-gradient(top, #57ad68 60%, #57ad68 100%); /* W3C */
+	background: #5cb85c; /* Old browsers */
+	background: -moz-linear-gradient(top, #5cb85c 60%, #5cb85c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #5cb85c), color-stop(100%, #5cb85c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #5cb85c 60%, #5cb85c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #5cb85c 60%, #5cb85c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #5cb85c 60%, #5cb85c 100%); /* IE10+ */
+	background: linear-gradient(top, #5cb85c 60%, #5cb85c 100%); /* W3C */
 	color: #ffffff;
 	font-size: 15px;
 	font-size: 1.5rem;
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#57ad68', endColorstr='#57ad68', GradientType=0); /* IE6-9 */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5cb85c', endColorstr='#5cb85c', GradientType=0); /* IE6-9 */
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
 	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
 	-webkit-font-smoothing: antialiased;
@@ -417,20 +417,20 @@ textarea {
 
 /* Links */
 a {
-	color: #57ad68;
+	color: #5cb85c;
 	text-decoration: none;
 }
 
 a:visited {
-	color: #57ad68;
+	color: #5cb85c;
 	text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: #57ad68;
-	text-decoration: underline;
+	color: #337ab7;
+	text-decoration: none;
 }
 
 /* Alignment */
@@ -515,7 +515,7 @@ img.aligncenter {
 }
 
 .main-navigation li:hover > a {
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 .main-navigation ul ul :hover > a {
@@ -723,7 +723,7 @@ Accessibility
 	text-align: right;
 	font-family: 'Merriweather', serif;
 	font-size: 1.4em;
-	color: #57ad68;
+	color: #5cb85c;
 }
 
 .enhanced-excerpt-read-more {
@@ -777,7 +777,7 @@ Accessibility
 .format-image .entry-format,
 .format-link .entry-format,
 .format-gallery .entry-format {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	font-weight: 300;
 }
 
@@ -1090,7 +1090,7 @@ object {
 }
 
 .comment-content.unapproved {
-	color: #b3b3b1;
+	color: #a7a7a7;
 }
 
 .site-main .commentlist article {
@@ -1173,7 +1173,7 @@ ol.commentlist .avatar {
 
 .comment-meta,
 .comment-meta a {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	text-decoration: none;
 	font-size: 12px;
 }
@@ -1330,7 +1330,7 @@ ul.taglist {
 .comment-form-reply-title {
 	margin-right: 5px;
 	font-family: 'News Cycle', sans-serif;
-	color: #b3b3b1;
+	color: #a7a7a7;
 	display: block;
 	font-size: 16px;
 	font-weight: 100;
@@ -1475,7 +1475,7 @@ ul.taglist {
 .widget_rss .rss-date,
 .widget_rss li > cite,
 .widget_twitter .timesince {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	display: block;
 	font-size: 12px;
 }
@@ -1528,6 +1528,10 @@ body {
 .site-title a {
 	color: inherit;
 	text-decoration: none;
+}
+
+.site-title a:hover {
+	color: #5cb85c;
 }
 
 .site-title {
@@ -1666,7 +1670,7 @@ body {
 }
 
 #infinite-footer .blog-credits {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	font-family: 'News Cycle', sans-serif;
 	font-weight: 100;
 }
@@ -1676,7 +1680,7 @@ body {
 
 #infinite-footer .blog-credits a,
 #infinite-footer .blog-credits a:hover {
-	color: #57ad68;
+	color: #5cb85c;
 }
 
 /* Inifnite Scroll - Spinner */
@@ -1809,12 +1813,12 @@ article.first-post {
 }
 
 .entry-title a:hover {
-	color: #57ad68;
+	color: #5cb85c;
 }
 
 .entry-title-meta {
 	font-size: 13px;
-	color: #b3b3b1;
+	color: #a7a7a7;
 	font-weight: 100;
 	letter-spacing: 1px;
 	margin-bottom: 0px;
@@ -1829,7 +1833,7 @@ article.first-post {
 }
 
 .entry-title-meta a {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	text-decoration: none;
 }
 
@@ -1839,15 +1843,17 @@ article.first-post {
 
 .entry-meta,
 .entry-meta a {
-	color: #b3b3b1;
+	color: #a7a7a7;
 	font-size: 13px;
 	font-family: 'News Cycle', sans-serif;
 	font-weight: 100;
 	text-align: right;
 }
 
-.entry-meta a:hover {
-	color: #57ad68;
+.entry-meta a:hover,
+.entry-title-meta a:hover,
+.entry-meta-container a:hover {
+	color: #5cb85c;
 }
 
 .single .entry-meta,
@@ -1935,7 +1941,7 @@ article.first-post {
 	clear: both;
 	margin-top: 10px;
 	margin-bottom: 20px;
-	color: #b3b3b1;
+	color: #a7a7a7;
 }
 
 .site-footer,
@@ -1944,7 +1950,7 @@ article.first-post {
 }
 
 .site-footer a:hover {
-	color: #57ad68;
+	color: #5cb85c;
 }
 
 .site-footer {
@@ -1959,8 +1965,7 @@ article.first-post {
 	font-size: 0.95em;
 }
 
-.site-footer a,
-.site-footer a:hover {
+.site-footer a {
 	color: inherit;
 	text-decoration: none;
 }
@@ -2094,7 +2099,7 @@ table th {
 
 .author div.author-bio {
 	border-bottom: 1px solid;
-	border-color: #b3b3b1;
+	border-color: #a7a7a7;
 	padding-bottom: 40px;
 	margin-bottom: 80px;
 }
@@ -2351,7 +2356,7 @@ table th {
 }
 .single.post-cover-overlay-post-title .post-cover-title-head .entry-title-meta a:hover,
 .page.post-cover-overlay-post-title .post-cover-title-head .entry-title-meta a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 .page.post-cover-overlay-post-title h1.entry-title,
 .page.full-width-featured-image h1.entry-title {
@@ -2732,6 +2737,10 @@ table th {
 	.archive .menu-topnav-container {
 		display: none;
 	}
+	
+	.hide-on-small-screens {
+		display: none;
+	}
 }
 
 @media only screen and (max-width: 500px) {
@@ -3014,6 +3023,10 @@ table th {
 	.post-excerpts h1.entry-title, .enhanced-excerpts h1.entry-title {
 		font-size: 1.5em;
 	}
+	
+	.hide-on-small-screens {
+		display: none;
+	}
 }
 
 .wp-pagenavi {
@@ -3028,7 +3041,7 @@ table th {
 .wp-pagenavi .extend,
 .wp-pagenavi .last,
 .wp-pagenavi .first {
-  background-color: #57ad68;
+  background-color: #5cb85c;
   color: white;
   display: inline-block;
   padding: 8px 15px;
