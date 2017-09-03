@@ -3069,3 +3069,7 @@ table th {
 .site-info {
 	font-size: 11px !important;
 }
+
+article ul li:not(:first-child) {
+	padding-top: 10px !important;
+}
