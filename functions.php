@@ -188,9 +188,9 @@ function independent_publisher_scripts() {
 
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons/genericons.css', array(), '3.1' );
 	
-	wp_enqueue_style( 'fira-mono-v5-latin', get_template_directory_uri() . '/fonts/fira-mono-v5-latin/fira-mono-v5-latin.min.css', array(), '3.1' );
-	wp_enqueue_style( 'news-cycle-v13-latin', get_template_directory_uri() . '/fonts/news-cycle-v13-latin/news-cycle-v13-latin.min.css', array(), '3.1' );
-	wp_enqueue_style( 'merriweather-v14-latin', get_template_directory_uri() . '/fonts/merriweather-v14-latin/merriweather-v14-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'fira-mono-v8-latin', get_template_directory_uri() . '/fonts/fira-mono-v8-latin/fira-mono-v8-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'news-cycle-v16-latin', get_template_directory_uri() . '/fonts/news-cycle-v16-latin/news-cycle-v16-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'merriweather-v21-latin', get_template_directory_uri() . '/fonts/merriweather-v21-latin/merriweather-v21-latin.min.css', array(), '3.1' );
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome/css/fontawesome-all.min.css', array(), '3.1' );
 
 	wp_enqueue_script( 'independent-publisher-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
