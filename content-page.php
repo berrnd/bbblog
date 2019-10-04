@@ -13,7 +13,29 @@
 	<?php endif; ?>
 	<header class="entry-header">
 		<?php if ( ! independent_publisher_post_has_post_cover_title() ): ?>
-			<h1 class="entry-title"><?php the_title(); ?></h1>
+		
+			<?php if (get_post_meta(get_the_ID(), 'show_meta', true) == '1') : ?>
+			<div class="entry-meta-container-small-screens">
+			<?php /* Show last updated date if the post was modified AND
+						Show Updated Date on Single Posts option is enabled AND
+							'independent_publisher_hide_updated_date' Custom Field is not present on this post */ ?>
+			<?php if ( get_the_modified_date() !== get_the_date() &&
+						independent_publisher_show_updated_date_on_single() &&
+							! get_post_meta( get_the_ID(), 'independent_publisher_hide_updated_date', TRUE ) ) : ?>
+				<h3 class="entry-title-meta"><?php _e('Updated', 'independent-publisher'); ?></h3>
+				<h3 class="entry-title-meta"><?php independent_publisher_post_updated_date(); ?></h3>
+			<?php endif; ?>
+		
+				<h3 class="entry-title-meta">Hashtags <em><?php echo independent_publisher_post_categories( ', ', false ); ?></em></h3>
+				<h3 class="entry-title-meta">Geschätzte Lesedauer <em><?php echo estimated_reading_time(get_the_content()); ?></em></h3>
+			</div>
+			<?php endif; ?>
+			
+			<?php if(has_tag())
+				echo '<h3 class="entry-title-meta">Teil der Story <em>' . independent_publisher_post_tags( '', true ) . '</em></h3>';
+			?>
+			<h1 class="entry-title <?php if(get_the_subtitle(get_the_ID(), '', '', FALSE) === '') { echo ' hasno-subtitle'; } ?>"><?php the_title(); ?></h1>
+			<?php if(get_the_subtitle(get_the_ID(), '', '', FALSE) !== '') { the_subtitle('<h2 class="entry-title entry-subtitle">', '</h2>'); } ?>
 		<?php endif; ?>
 	</header>
 	<!-- .entry-header -->

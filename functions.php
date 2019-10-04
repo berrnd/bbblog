@@ -191,6 +191,7 @@ function independent_publisher_scripts() {
 	wp_enqueue_style( 'fira-mono-v5-latin', get_template_directory_uri() . '/fonts/fira-mono-v5-latin/fira-mono-v5-latin.min.css', array(), '3.1' );
 	wp_enqueue_style( 'news-cycle-v13-latin', get_template_directory_uri() . '/fonts/news-cycle-v13-latin/news-cycle-v13-latin.min.css', array(), '3.1' );
 	wp_enqueue_style( 'merriweather-v14-latin', get_template_directory_uri() . '/fonts/merriweather-v14-latin/merriweather-v14-latin.min.css', array(), '3.1' );
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome/css/fontawesome-all.min.css', array(), '3.1' );
 
 	wp_enqueue_script( 'independent-publisher-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
@@ -210,6 +211,8 @@ function independent_publisher_scripts() {
 	if ( is_singular() ) {
 		wp_enqueue_script( 'fade-post-title', get_template_directory_uri() . '/js/fade-post-title.js', array( 'jquery' ));
 	}
+	
+	wp_enqueue_script( 'bbblog', get_template_directory_uri() . '/js/bbblog.js', array( 'jquery' ), false, true);
 
 	/**
 	 * Load JetPack Sharing Buttons Style Enhancements
@@ -352,7 +355,7 @@ if ( ! function_exists( 'independent_publisher_author_comment_reply_link' ) ) :
 
 		// Replace Reply Link with "Reply to <Author First Name>"
 		$reply_link_text = $args['reply_text'];
-		$link            = str_replace( $reply_link_text, __('Reply to', 'independent-publisher') . ' ' . $author, $link );
+		$link            = str_replace( $reply_link_text, $author . ' antworten', $link );
 
 		return $link;
 	}
@@ -1262,3 +1265,31 @@ remove_action( 'wp_head', 'wp_resource_hints', 2 );
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles' );
 add_filter( 'emoji_svg_url', '__return_false' );
+
+//Enable taxonomy for pages
+function add_categories_to_pages() {
+register_taxonomy_for_object_type( 'category', 'page' );
+}
+add_action( 'init', 'add_categories_to_pages' );
+function add_tags_to_pages() {
+register_taxonomy_for_object_type( 'post_tag', 'page' );
+}
+add_action( 'init', 'add_tags_to_pages');
+
+//Disable search
+function wpb_filter_query( $query, $error = true ) {
+if ( is_search() ) {
+$query->is_search = false;
+$query->query_vars[s] = false;
+$query->query[s] = false;
+if ( $error == true )
+$query->is_404 = true;
+}
+}
+add_action( 'parse_query', 'wpb_filter_query' );
+add_filter( 'get_search_form', create_function( '$a', "return null;" ) );
+function remove_search_widget() {
+    unregister_widget('WP_Widget_Search');
+}
+add_action( 'widgets_init', 'remove_search_widget' );
+

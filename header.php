@@ -40,7 +40,7 @@
 	<header id="masthead" class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
 		<div class="site-header-info">
-			<?php if ( is_single() ) : ?>
+			<?php if ( is_single() || (is_page() && get_post_meta(get_the_ID(), 'show_meta', true) == '1') ) : ?>
 				<?php // Show only post author info on Single Pages ?>
 				<?php independent_publisher_posted_author_card(); ?>
 			<?php else : ?>
@@ -50,23 +50,27 @@
 		</div>
 		
 		<?php if (is_home() || is_page() || is_category() || is_tag()) : ?>
-			<div class="site-published-separator"></div>
+			<!--<div class="site-published-separator"></div>-->
 		<?php endif; ?>
 
 		<?php // Show navigation menu on everything except Single pages, unless Show Primary Nav Menu on Single Pages is enabled ?>
-		<?php if ( ! is_single() || independent_publisher_show_nav_on_single() ) : ?>
+		<?php // if ( ! is_single() || independent_publisher_show_nav_on_single() ) : ?>
 			<nav role="navigation" class="site-navigation main-navigation">
 				<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'independent-publisher' ); ?>"><?php _e( 'Skip to content', 'independent-publisher' ); ?></a>
 
 				<?php // If this is a Single Post and we have a menu assigned to the "Single Posts Menu", show that ?>
 				<?php if ( is_single() && has_nav_menu( 'single' ) ) : ?>
 					<?php wp_nav_menu( array( 'theme_location' => 'single', 'depth' => 1 ) ); ?>
-				<?php else : ?>
+				<?php elseif (!is_single() && !is_page()) : ?>
 					<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 1 ) ); ?>
+					
+					<div class="widget-area widget-area-head">
+						<?php dynamic_sidebar( 'sidebar-1' ) ?>
+					</div>
 				<?php endif; ?>
-
+				
 			</nav><!-- .site-navigation .main-navigation -->
-		<?php endif; ?>
+		<?php // endif; ?>
 
 		<?php do_action( 'independent_publisher_header_after' ); ?>
 	</header>

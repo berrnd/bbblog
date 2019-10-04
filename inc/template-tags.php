@@ -84,6 +84,8 @@ if ( ! function_exists( 'independent_publisher_comment' ) ) :
 		$GLOBALS['comment']    = $comment;
 		$comment_content_class = ''; // Used to style the comment-content differently when comment is awaiting moderation
 		?>
+		
+		<?php if ($comment->comment_author_email !== 'changelog@blog.berrnd.de') : ?>
 		<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<article id="comment-<?php comment_ID(); ?>" class="comment">
 			<footer>
@@ -98,7 +100,7 @@ if ( ! function_exists( 'independent_publisher_comment' ) ) :
 				<!-- .comment-author .vcard -->
 				<div class="comment-meta commentmetadata">
 					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
-						<time pubdate datetime="<?php comment_time( 'c' ); ?>">
+						schrieb am <time pubdate datetime="<?php comment_time( 'c' ); ?>">
 							<?php
 							/* translators: 1: date */
 							printf( '%1$s', get_comment_date() ); ?>
@@ -121,6 +123,24 @@ if ( ! function_exists( 'independent_publisher_comment' ) ) :
 			</div>
 			<!-- .reply -->
 		</article><!-- #comment-## -->
+		<?php else : ?>
+		<article id="comment-<?php comment_ID(); ?>" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					Artikeländerung vom 
+					<time pubdate datetime="<?php comment_time( 'c' ); ?>">
+						<?php
+						/* translators: 1: date */
+						printf( '%1$s', get_comment_date() ); ?>
+					</time>
+				</div>
+				<!-- .comment-author .vcard -->
+			</footer>
+
+			<div class="comment-content <?php echo $comment_content_class; ?>"><?php comment_text(); ?></div>
+
+		</article><!-- #comment-## -->
+		<?php endif; ?>
 	<?php
 	}
 endif; // ends check for independent_publisher_comment()
@@ -491,6 +511,8 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 
 		<div class="site-published-separator"></div>
 		<div class="entry-meta-container">
+		
+		<?php if (!is_page()) : ?>
 		<h2 class="site-published"><?php _e('Published', 'independent-publisher'); ?></h2>
 		<h2 class="site-published-date"><?php independent_publisher_posted_on_date(); ?></h2>
 		<?php /* Show last updated date if the post was modified AND
@@ -502,8 +524,10 @@ if ( ! function_exists( 'independent_publisher_posted_author_card' ) ) :
 			<h2 class="site-published"><?php _e('Updated', 'independent-publisher'); ?></h2>
 			<h2 class="site-published-date"><?php independent_publisher_post_updated_date(); ?></h2>
 		<?php endif; ?>
-    
-    <div class="sidebar-separator"></div>
+		<div class="sidebar-separator"></div>
+	<?php endif; ?>
+	
+	
     <h2 class="site-published">Hashtags</h2>
     <h2 class="site-published-date"><?php echo independent_publisher_post_categories( '<br>', false ); ?></h2>
 	<div class="sidebar-separator"></div>

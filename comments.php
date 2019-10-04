@@ -83,6 +83,7 @@ if ( post_password_required() ) {
 			<p class="nocomments"><?php _e( 'Comments are closed.', 'independent-publisher' ); ?></p>
 		<?php endif; ?>
 
+		<?php /*
 		<?php if ( comments_open() && get_comments_number() >= independent_publisher_min_comments_bottom_comment_button() ) : ?>
 
 			<?php do_action( 'independent_publisher_before_bottom_comment_button' ); ?>
@@ -94,6 +95,7 @@ if ( post_password_required() ) {
 			</div>
 			<div id="commentform-bottom"></div> <!-- do not remove; used by jQuery to move the comment reply form here -->
 		<?php endif; ?>
+		*/?>
 
 		<?php if ( count( $wp_query->comments_by_type['pings'] ) ) { ?>
 			<div id="pinglist">
